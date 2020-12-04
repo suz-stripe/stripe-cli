@@ -19,10 +19,10 @@ jobs:
         name: Run goreleaser
         working-directory: ${{ github.workspace }}
         run: |
-          docker run -e GITHUB_TOKEN=$GORELEASER_PAT --rm --privileged \
+          docker run -e GORELEASER_GITHUB_TOKEN=$GORELEASER_GITHUB_TOKEN --rm --privileged \
           -v /var/run/docker.sock:/var/run/docker.sock -v $BUILD_PLS_DIR:$BUILD_PLS_DIR \
           -w $BUILD_PLS_DIR mailchain/goreleaser-xcgo --rm-dist
         shell: bash
         env:
-          GORELEASER_PAT: ${{ secrets.GORELEASER_PAT }}
+          GORELEASER_GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
           BUILD_PLS_DIR: ${{ github.workspace }}
