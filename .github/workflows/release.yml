@@ -19,6 +19,5 @@ jobs:
           args: '--rm-dist'
         env:
           GORELEASER_GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
-          BUILD_PLS_DIR: ${{ github.workspace }}
 
 # TODO: Bintray tasks
