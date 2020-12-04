@@ -12,17 +12,9 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      - 
-        name: Install
-        run: make setup
       -
         name: Run goreleaser
-        working-directory: ${{ github.workspace }}
-        run: |
-          docker run -e GORELEASER_GITHUB_TOKEN=$GORELEASER_GITHUB_TOKEN --rm --privileged \
-          -v /var/run/docker.sock:/var/run/docker.sock -v $BUILD_PLS_DIR:$BUILD_PLS_DIR \
-          -w $BUILD_PLS_DIR mailchain/goreleaser-xcgo --rm-dist
-        shell: bash
+        uses: docker://mailchain/goreleaser-xcgo:latest
         env:
           GORELEASER_GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
           BUILD_PLS_DIR: ${{ github.workspace }}
