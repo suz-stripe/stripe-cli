@@ -17,6 +17,6 @@ jobs:
         run: make setup
       -
         name: Run goreleaser
-        uses: mailchain/goreleaser-xcgo
+        uses: mailchain/goreleaser-xcgo@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
