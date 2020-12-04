@@ -19,5 +19,16 @@ jobs:
           args: '--rm-dist'
         env:
           GORELEASER_GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
-
-# TODO: Bintray tasks
+     # TODO: Bintray task secrets
+     # TODO: VirusTotal secrets
+     # -
+       # name: Upload to Bintray
+       # run: |
+       #   scripts/publish-deb-to-bintray.sh
+       #   scripts/publish-rpm-to-bintray.sh
+       # shell: bash
+     # -
+       # name: Upload to VirusTotal
+       # run: |
+       #   scripts/upload-zip-to-virustotal.sh
+       # shell: bash
