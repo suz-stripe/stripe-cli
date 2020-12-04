@@ -85,12 +85,13 @@ brews:
   -
     github:
       owner: suz-stripe
-      name: cli-pkg-mngr-testing/brew
+      name: cli-pkg-mngr-testing
     commit_author:
       name: stripe-ci
       email: support@stripe.com
     homepage:  https://stripe.com
     description: Stripe CLI utility
+    folder: brew
     install: |
       bin.install "stripe"
       rm Dir["#{bin}/{stripe-completion.bash,stripe-completion.zsh}"]
@@ -108,9 +109,10 @@ brews:
       EOS
     caveats: "❤ Thanks for installing the Stripe CLI! If this is your first time using the CLI, be sure to run `stripe login` first."
 scoop:
+  name: scoop/stripe
   bucket:
     owner: suz-stripe
-    name: cli-pkg-mngr-testing/scoop
+    name: cli-pkg-mngr-testing
   commit_author:
     name: stripe-ci
     email: support@stripe.com
