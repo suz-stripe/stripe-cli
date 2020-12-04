@@ -13,8 +13,11 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       - 
-        name: Run a one-line script
-        run: docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -w $GITHUB_WORKSPACE mailchain/goreleaser-xcgo --rm-dist
+        name: Install
+        run: make setup
+      -
+        name: Run goreleaser
+        run: echo $GITHUB_WORKSPACE; docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -w $GITHUB_WORKSPACE mailchain/goreleaser-xcgo --rm-dist
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
