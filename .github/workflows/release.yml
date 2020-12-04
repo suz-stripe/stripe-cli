@@ -15,6 +15,8 @@ jobs:
       -
         name: Run goreleaser
         uses: docker://mailchain/goreleaser-xcgo:latest
+        with:
+          args: '--rm-dist'
         env:
           GORELEASER_GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
           BUILD_PLS_DIR: ${{ github.workspace }}
