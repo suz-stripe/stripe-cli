@@ -1,0 +1,22 @@
+name: do_release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - 
+        name: Run a one-line script
+        run: docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -w /go/src/github.com/suz-stripe/stripe-cli mailchain/goreleaser-xcgo --rm-dist
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
