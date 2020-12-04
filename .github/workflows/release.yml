@@ -18,8 +18,8 @@ jobs:
       -
         name: Run goreleaser
         working-directory: ${{ github.workspace }}
-        run: ls -la $BUILD_PLS_DIR; docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v $BUILD_PLS_DIR:$BUILD_PLS_DIR -w $BUILD_PLS_DIR mailchain/goreleaser-xcgo --rm-dist
+        run: ls -la $BUILD_PLS_DIR; docker run -e GITHUB_TOKEN=$GORELEASER_PAT --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v $BUILD_PLS_DIR:$BUILD_PLS_DIR -w $BUILD_PLS_DIR mailchain/goreleaser-xcgo --rm-dist
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GORELEASER_PAT: ${{ secrets.GORELEASER_PAT }}
           BUILD_PLS_DIR: ${{ github.workspace }}
