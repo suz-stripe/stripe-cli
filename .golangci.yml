@@ -34,7 +34,7 @@ linters:
 
 linters-settings:
   goimports:
-    local-prefixes: github.com/stripe/stripe-cli
+    local-prefixes: github.com/suz-stripe/stripe-cli
   misspell:
     locale: US
 
