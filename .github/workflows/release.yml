@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - 
         name: Run a one-line script
-        run: docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -w /go/src/github.com/suz-stripe/stripe-cli mailchain/goreleaser-xcgo --rm-dist
+        run: docker run -e GITHUB_TOKEN=$GITHUB_TOKEN --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -w $GITHUB_WORKSPACE mailchain/goreleaser-xcgo --rm-dist
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
