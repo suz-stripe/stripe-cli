@@ -1,0 +1,16 @@
+name: test_install_tools
+on: workflow_dispatch
+
+jobs:
+  install_tools:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Code checkout
+        uses: actions/checkout@v2
+     
+      -
+        name: Install essential tools
+        run: apt-get install --no-install-recommends -y jq unzip findutils curl ca-certificates
+        shell: bash
