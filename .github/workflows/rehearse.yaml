@@ -12,5 +12,5 @@ jobs:
      
       -
         name: Install essential tools
-        run: apt-get install --no-install-recommends -y jq unzip findutils curl ca-certificates
+        run: sudo apt-get install --no-install-recommends -y jq unzip findutils curl ca-certificates
         shell: bash
